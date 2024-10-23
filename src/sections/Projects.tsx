@@ -5,43 +5,79 @@ import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
+import Bootstrap from "@/assets/icons/bootstrap.svg";
+import Dart from "@/assets/icons/dart.svg";
+import Firebase from "@/assets/icons/firebase.svg";
+import Flutter from "@/assets/icons/flutter.svg";
+import GoogleMaps from "@/assets/icons/google-maps.svg";
+import Javascript from "@/assets/icons/javascript.svg";
+import Laravel from "@/assets/icons/laravel.svg";
+import Mysql from "@/assets/icons/mysql.svg";
+import Php from "@/assets/icons/php.svg";
+import FlutterBloc from "@/assets/icons/bloc.svg";
+import FlutterRiverpod from "@/assets/icons/flutter-riverpod.svg";
 
 const portfolioProjects = [
+  {
+    company: "Fernand Jerico",
+    year: "2024",
+    title: "CineTix ID - Movie Ticketing App",
+    results: [
+      { title: "Movie Selection and Ticket Purchase" },
+      { title: "Top-Up Balance for Seamless Payments" },
+      { title: "Purchase History with Detailed Ticket Information" },
+    ],
+    link: "https://www.github.com/FernandJerico/cinetix_id",
+    image: darkSaasLandingPage,
+    tech: [Dart, Flutter, Firebase, FlutterRiverpod],
+  },
   {
     company: "PT. Rajawali Permata Asia",
     year: "2024",
     title: "RAJA - Attendance & Payroll App",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      {
+        title:
+          "Attendance: Implemented an attendance feature using GPS tracking",
+      },
+      {
+        title: "Payroll: Feature that manages and calculates employee salaries",
+      },
+      {
+        title: "Over 10 active users daily: Ensuring daily system usage",
+      },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
+    link: "https://www.github.com/FernandJerico/",
     image: darkSaasLandingPage,
+    tech: [Dart, Flutter, Firebase, GoogleMaps, FlutterBloc],
   },
   {
     company: "Final Year Project",
     year: "2024",
     title: "Clinic Management App",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Online Consultation Reservation" },
+      { title: "Push Notifications using FCM" },
+      { title: "Electronic Medical Records (EMR) System" },
+      { title: "Integrate with Bluetooth Printer" },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
+    link: "https://www.github.com/FernandJerico/clinic_management_app",
     image: aiStartupLandingPage,
+    tech: [Dart, Flutter, Php, Laravel, Mysql, Javascript],
   },
   {
     company: "PT. Adma Digital Solusi",
     year: "2023",
     title: "FindFluence - Influencer Marketing Platform",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      { title: "Influencer Product Requests for Reviews" },
+      { title: "Brand Campaign Contracts with Influencers" },
+      { title: "Two-Way Brand-Influencer Collaboration" },
+      { title: "Streamlined Contract Management" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
+    link: "https://www.findfluence.adslink.id/",
     image: lightSaasLandingPage,
+    tech: [Php, Laravel, Javascript, Bootstrap, Mysql],
   },
 ];
 
@@ -88,6 +124,13 @@ export const ProjectsSection = () => {
                         className="flex gap-2 text-sm md:text-base text-white/50">
                         <CheckIcon className="size-5 md:size-6" />
                         <span>{result.title}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="flex flex-row gap-2 mt-3 md:mt-3">
+                    {project.tech.map((TechIcon, index) => (
+                      <li key={index}>
+                        <TechIcon className="w-6 h-6" alt="Tech Icon" />
                       </li>
                     ))}
                   </ul>
