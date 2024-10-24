@@ -52,7 +52,7 @@ export const HeroSection = () => {
         <div className="flex flex-col items-center">
           <Image
             src={myPhoto}
-            className="size-[200px] rounded-full mb-3"
+            className="size-[200px] rounded-full mb-3 object-cover"
             alt="Memoji with computer"
           />
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">

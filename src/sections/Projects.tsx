@@ -1,6 +1,10 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+"use client";
+import { useState } from "react";
+import rajaApp from "@/assets/images/raja-rpa.png";
+import clinicManagementApp from "@/assets/images/clinic-management-app.png";
+import findfluence from "@/assets/images/findfluence.png";
+import cinetixApp from "@/assets/images/cinetix-id.png";
+import recipeMasterApp from "@/assets/images/recipe-master.png";
 import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowRightIcon from "@/assets/icons/arrow-up-right.svg";
@@ -16,8 +20,9 @@ import Mysql from "@/assets/icons/mysql.svg";
 import Php from "@/assets/icons/php.svg";
 import FlutterBloc from "@/assets/icons/bloc.svg";
 import FlutterRiverpod from "@/assets/icons/flutter-riverpod.svg";
+import Kotlin from "@/assets/icons/kotlin.svg";
 
-const portfolioProjects = [
+const portfolioMobileProjects = [
   {
     company: "Fernand Jerico",
     year: "2024",
@@ -28,27 +33,26 @@ const portfolioProjects = [
       { title: "Purchase History with Detailed Ticket Information" },
     ],
     link: "https://www.github.com/FernandJerico/cinetix_id",
-    image: darkSaasLandingPage,
+    image: cinetixApp,
     tech: [Dart, Flutter, Firebase, FlutterRiverpod],
   },
   {
     company: "PT. Rajawali Permata Asia",
     year: "2024",
-    title: "RAJA - Attendance & Payroll App",
+    title: "RAJA - Attendance and Payroll App",
     results: [
       {
-        title:
-          "Attendance: Implemented an attendance feature using GPS tracking",
+        title: "Attendance feature using GPS tracking",
       },
       {
-        title: "Payroll: Feature that manages and calculates employee salaries",
+        title: "Manages and calculates employee salaries",
       },
       {
-        title: "Over 10 active users daily: Ensuring daily system usage",
+        title: "Over 10 active users daily: Ensuring\ndaily system usage",
       },
     ],
     link: "https://www.github.com/FernandJerico/",
-    image: darkSaasLandingPage,
+    image: rajaApp,
     tech: [Dart, Flutter, Firebase, GoogleMaps, FlutterBloc],
   },
   {
@@ -62,9 +66,28 @@ const portfolioProjects = [
       { title: "Integrate with Bluetooth Printer" },
     ],
     link: "https://www.github.com/FernandJerico/clinic_management_app",
-    image: aiStartupLandingPage,
+    image: clinicManagementApp,
     tech: [Dart, Flutter, Php, Laravel, Mysql, Javascript],
   },
+];
+
+const portfolioAndroidProjects = [
+  {
+    company: "Fernand Jerico",
+    year: "2024",
+    title: "Recipe Master - Recipe App",
+    results: [
+      { title: "Create Recipes with Video or Photos" },
+      { title: "Search and Discover Recipes" },
+      { title: "Explore Popular Categories" },
+    ],
+    link: "https://www.github.com/FernandJerico/RecipeMaster",
+    image: recipeMasterApp,
+    tech: [Kotlin, Firebase],
+  },
+];
+
+const portfolioWebsiteProjects = [
   {
     company: "PT. Adma Digital Solusi",
     year: "2023",
@@ -76,12 +99,20 @@ const portfolioProjects = [
       { title: "Streamlined Contract Management" },
     ],
     link: "https://www.findfluence.adslink.id/",
-    image: lightSaasLandingPage,
+    image: findfluence,
     tech: [Php, Laravel, Javascript, Bootstrap, Mysql],
   },
 ];
 
 export const ProjectsSection = () => {
+  const [activeTab, setActiveTab] = useState("mobile");
+
+  const getProjects = () => {
+    if (activeTab === "mobile") return portfolioMobileProjects;
+    if (activeTab === "android") return portfolioAndroidProjects;
+    if (activeTab === "website") return portfolioWebsiteProjects;
+  };
+
   return (
     <section className="pb-16 lg:py-24">
       <div className="container">
@@ -96,8 +127,38 @@ export const ProjectsSection = () => {
         <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-md mx-auto">
           See how I transformed concepts into engaging digital experiences.
         </p>
-        <div className="mt-10 md:mt-20 flex flex-col gap-20">
-          {portfolioProjects.map((project) => (
+        <div className="flex flex-row gap-2 md:gap-10 justify-center mt-6 md:mt-10">
+          <button
+            className={`h-10 md:h-12 w-full md:w-auto px-4 md:px-6 rounded-xl font-semibold ${
+              activeTab === "mobile"
+                ? "bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900"
+                : ""
+            }`}
+            onClick={() => setActiveTab("mobile")}>
+            Mobile
+          </button>
+          <button
+            className={`h-10 md:h-12 w-full md:w-auto px-4 md:px-6 rounded-xl font-semibold ${
+              activeTab === "android"
+                ? "bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900"
+                : ""
+            }`}
+            onClick={() => setActiveTab("android")}>
+            Android
+          </button>
+          <button
+            className={`h-10 md:h-12 w-full md:w-auto px-4 md:px-6 rounded-xl font-semibold ${
+              activeTab === "website"
+                ? "bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900"
+                : ""
+            }`}
+            onClick={() => setActiveTab("website")}>
+            Website
+          </button>
+        </div>
+
+        <div className="mt-8 md:mt-10 flex flex-col gap-20">
+          {getProjects()?.map((project) => (
             <div
               key={project.title}
               className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:-z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 after:pointer-events-none">
@@ -123,7 +184,9 @@ export const ProjectsSection = () => {
                         key={result.title}
                         className="flex gap-2 text-sm md:text-base text-white/50">
                         <CheckIcon className="size-5 md:size-6" />
-                        <span>{result.title}</span>
+                        <span className="whitespace-pre-line">
+                          {result.title}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -145,7 +208,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:py-2 lg:absolute lg:h-3/5 lg:w-auto lg:max-w-none"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:py-2 lg:absolute lg:h-4/6 lg:w-auto lg:max-w-none"
                   />
                 </div>
               </div>
