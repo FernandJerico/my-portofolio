@@ -21,6 +21,7 @@ import Php from "@/assets/icons/php.svg";
 import FlutterBloc from "@/assets/icons/bloc.svg";
 import FlutterRiverpod from "@/assets/icons/flutter-riverpod.svg";
 import Kotlin from "@/assets/icons/kotlin.svg";
+import { SectionHeader } from "@/components/SectionHeader";
 
 const portfolioMobileProjects = [
   {
@@ -116,17 +117,11 @@ export const ProjectsSection = () => {
   return (
     <section className="pb-16 lg:py-24">
       <div className="container">
-        <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-center bg-clip-text text-transparent">
-            My Portofolio
-          </p>
-        </div>
-        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">
-          Featured Projects
-        </h2>
-        <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-md mx-auto">
-          See how I transformed concepts into engaging digital experiences.
-        </p>
+        <SectionHeader
+          eyebrow="My Portfolio"
+          title="Featured Projects"
+          description="See how I transformed concepts into engaging digital experiences."
+        />
         <div className="flex flex-row gap-2 md:gap-10 justify-center mt-6 md:mt-10">
           <button
             className={`h-10 md:h-12 w-full md:w-auto px-4 md:px-6 rounded-xl font-semibold ${
