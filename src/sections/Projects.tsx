@@ -153,10 +153,13 @@ export const ProjectsSection = () => {
         </div>
 
         <div className="mt-8 md:mt-10 flex flex-col gap-20">
-          {getProjects()?.map((project) => (
+          {getProjects()?.map((project, projectIndex) => (
             <Card
               key={project.title}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20">
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
+              style={{
+                top: `calc(64px + ${projectIndex * 40}px)`,
+              }}>
               <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
                 <span>{project.company}</span>
                 <span>&bull;</span>
