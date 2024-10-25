@@ -18,7 +18,7 @@ import FlutterRiverpod from "@/assets/icons/flutter-riverpod.svg";
 import Kotlin from "@/assets/icons/kotlin.svg";
 import React from "@/assets/icons/react.svg";
 import mapImage from "@/assets/images/map.png";
-import emojiSmile from "@/assets/images/memoji-smile.png";
+import myPhoto from "@/assets/images/fernand.jpg";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItem } from "@/components/ToolboxItem";
 
@@ -196,7 +196,11 @@ export const AboutSection = () => {
                 className="h-full w-full object-cover object-left-top"
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
-                <Image src={emojiSmile} alt="Emoji Smile" className="size-20" />
+                <Image
+                  src={myPhoto}
+                  alt="My Photo"
+                  className="size-20 rounded-full p-2"
+                />
               </div>
             </Card>
           </div>
